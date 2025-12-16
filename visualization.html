@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Data Visualization{% endblock %}
+
+{% block content %}
+    <h2>Business Metrics & Sales Data</h2>
+    
+    <div class="metric-box">
+        <h3>Total Inventory Value</h3>
+        <p class="big-number">₹{{ "%.2f"|format(total_value) }}</p>
+    </div>
+    
+    <div class="metric-box">
+        <h3>Total Orders Placed (Lifetime)</h3>
+        <p class="big-number">{{ total_orders }}</p>
+    </div>
+    
+    <div class="chart-container">
+        <h3>Top 5 Selling Products (Units)</h3>
+        <ul class="sales-list">
+            {% for product in top_products %}
+                <li>
+                    <span>{{ product.name }}</span>
+                    <span>{{ product.units_sold }} units</span>
+                </li>
+            {% else %}
+                <li>No sales data available yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

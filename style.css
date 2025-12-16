@@ -1,0 +1,338 @@
+/* --- GLOBAL STYLES --- */
+:root {
+    /* Dark & Vibrant Multi-Color Palette */
+    --primary-color: #00BCD4;     /* Cyan/Aqua Blue for main accents */
+    --secondary-color: #fdfeff62;    /* Muted Brown/Gray for less critical accents */
+    --success-color: #4CAF50;     /* Standard Green */
+    --error-color: #EF5350;       /* Bright Red */
+    --low-stock-color: #FFC107;   /* Amber/Warning Yellow */
+    --watched-color: #FFEB3B;     /* Bright Yellow/Gold for watchlist star */
+    
+    --bg-dark: #121212;           /* Near-Black for body background */
+    --content-bg: #1E1E1E;        /* Slightly lighter dark gray for card/form backgrounds */
+    --text-light: #E0E0E0;        /* Light Gray for main text */
+    --border-dark: #333333;       /* Dark border/separator color */
+    
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow for dark mode */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark); /* Dark background */
+    color: var(--text-light);      /* Light text */
+    line-height: 1.6;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+    color: white; /* Ensure headings are bright white */
+}
+
+/* --- HEADER AND NAVIGATION --- */
+header {
+    background-color: var(--primary-color);
+    color: var(--bg-dark); /* Dark text on bright header */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: 1.6em;
+    color: var(--bg-dark); /* Make the header text dark */
+}
+
+nav a {
+    color: var(--bg-dark); /* Dark text on bright background */
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* --- FLASH MESSAGES --- */
+.flash-message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.flash-success {
+    background-color: #388E3C; /* Dark success background */
+    color: white;
+    border: 1px solid var(--success-color);
+}
+
+.flash-error {
+    background-color: #C62828; /* Dark error background */
+    color: white;
+    border: 1px solid var(--error-color);
+}
+
+/* --- SECTIONS (Forms, Metrics, Cards) --- */
+.standard-form, .sales-form-container, .metric-box, .top-sellers-section, .product-card { 
+    background-color: var(--content-bg); /* Use slightly lighter dark gray */
+    color: var(--text-light);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 30px;
+    border: 1px solid var(--border-dark); /* Subtle border for separation */
+}
+
+.standard-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.standard-form input, .standard-form select, 
+.sale-form input, .sale-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-dark);
+    background-color: #2c2c2c; /* Dark input fields */
+    color: var(--text-light);
+    border-radius: 4px;
+}
+
+.sale-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 15px 0 0 0; 
+}
+
+.sale-form select {
+    flex-grow: 1; 
+}
+
+.sale-form input {
+    width: 150px; 
+}
+
+/* --- VISUALIZATION / METRICS STYLING --- */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.metric-box h4 {
+    color: var(--primary-color); /* Use accent color for metric titles */
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.big-number {
+    font-size: 2.5em;
+    font-weight: 700; 
+    color: var(--watched-color); /* Use a strong accent color for numbers */
+}
+
+.sales-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sales-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-dark);
+    font-weight: 500;
+}
+
+/* --- PRODUCT CARD STYLING --- */
+.inventory-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Image Styling */
+.image-container {
+    height: 150px; 
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: var(--border-dark); /* Dark placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
+
+.actions-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.watchlist-btn {
+    background: none;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.watched {
+    border-left: 5px solid var(--watched-color);
+    box-shadow: 0 0 10px rgba(255, 235, 59, 0.4);
+}
+
+.watched .watchlist-btn {
+    border-color: var(--watched-color);
+    color: var(--bg-dark);
+    background-color: var(--watched-color);
+}
+
+.stock-badge {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.85em;
+}
+
+/* LOW STOCK ALERT STYLES */
+.low-stock {
+    border-left: 5px solid var(--low-stock-color);
+    background-color: #3e2723; /* Darker brown/red background */
+}
+
+.low-stock .stock-badge {
+    background-color: var(--low-stock-color);
+    color: var(--bg-dark);
+    font-weight: bold;
+}
+
+.alert-text {
+    color: var(--error-color);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* --- BUTTONS --- */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+}
+
+button[type="submit"]:hover {
+    background-color: #00838F;
+}
+
+.card-actions {
+    margin-top: auto; 
+    padding-top: 15px;
+    border-top: 1px solid var(--border-dark);
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+.delete-btn {
+    background-color: var(--error-color);
+    color: white;
+}
+
+/* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    main {
+        padding: 15px;
+    }
+    
+    /* Adjust header layout */
+    header {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    header h1 {
+        margin-bottom: 5px;
+    }
+    nav {
+        margin-top: 5px;
+    }
+    nav a {
+        margin: 5px 8px;
+        font-size: 0.9em;
+    }
+    
+    /* Responsive Metrics/KPI Grid */
+    .metrics-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    /* Adjust sale form for smaller screens */
+    .sale-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .sale-form input, .sale-form select {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .sale-form input {
+        width: 100%; 
+    }
+    .sale-form button {
+        margin-top: 10px;
+    }
+
+    /* Adjust inventory grid */
+    .inventory-grid {
+        grid-template-columns: 1fr; 
+    }
+}
